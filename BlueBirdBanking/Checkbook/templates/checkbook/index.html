@@ -1,0 +1,22 @@
+{% extends "checkbook_base.html" %}
+
+{% block title %}Bluebird Banking{% endblock %}
+{% block content %}
+    <h3>Welcome to Blue Bird Banking</h3>
+
+    <div class="text-center">
+        <h5>Manage Your Existing Account!</h5>
+        <form method="POST">
+            <label id="index-label">Choose Account:</label>
+            {% csrf_token %}
+            {{ form.account }}
+            <button type="submit">Go To Account</button>
+        </form>
+    </div>
+
+    <div class="text-center">
+        <h5>Add Another Account!</h5>
+        <!-- Add a template to the href so the button works-->
+        <button type="submit" class="new-account-button"><a href="{% url 'create' %}">Create Account</a></button>
+    </div>
+{% endblock %}
